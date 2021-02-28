@@ -1,5 +1,7 @@
 package com.example.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -11,11 +13,15 @@ import java.util.List;
 public class City extends Model {
 
     private String name;
+    @JsonIgnore
     private Double latitude;
+    @JsonIgnore
     private Double longitude;
     @OneToMany(mappedBy = "from", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @JsonIgnore
     private List<Distance> fromCityDistances;
     @OneToMany(mappedBy = "to", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @JsonIgnore
     private List<Distance> toCityDistances;
 
     public City() {

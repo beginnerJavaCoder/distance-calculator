@@ -1,5 +1,9 @@
 package com.example.service;
 
-public interface CityService {
+import com.example.domain.City;
 
+import java.util.List;
+
+public interface CityService {
+    List<City> findAll();
 }
